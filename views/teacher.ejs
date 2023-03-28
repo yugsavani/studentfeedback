@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- font awesome cdn link  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="/css/teacher.css" />
+
+    <!-- custom js file link  -->
+    <script src="/css/teacher.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h3 class="title">Teacher Names</h3>
+
+      <div class="name-container">
+        <div class="name" data-name="p-1" tname="JEEL">
+          <div class="image-container">
+            <img src="/assets/jeel.svg" class="image" />
+          </div>
+          <h3>JEEL PATEL</h3>
+          <div class="department">LAB DEPARTMENT</div>
+          <h4 class="discription">
+            A school HOD (Head of Department) is a senior academic leader
+            responsible for managing and overseeing a specific subject area or
+            department within a school. The HOD is typically a teacher or
+            lecturer with significant experience and expertise in their subject
+            area.
+          </h4>
+        </div>
+
+        <div class="name" data-name="p-2" tname="HETANG">
+          <div class="image-container">
+            <img src="/assets/jeel.svg" class="image" />
+          </div>
+          <h3>HETANG KOTHADIA</h3>
+          <div class="department">FINANCE DEPARTMENT</div>
+          <h4 class="discription">
+            A school HOD (Head of Department) is a senior academic leader
+            responsible for managing and overseeing a specific subject area or
+            department within a school. The HOD is typically a teacher or
+            lecturer with significant experience and expertise in their subject
+            area.
+          </h4>
+        </div>
+
+        <div class="name" data-name="p-3" tname="YUGANT">
+          <div class="image-container">
+            <img src="/assets/jeel.svg" class="image" />
+          </div>
+          <h3>YUGANT SAVANI</h3>
+          <div class="department">SPORTS DEPARTMENT</div>
+          <h4 class="discription">
+            A school HOD (Head of Department) is a senior academic leader
+            responsible for managing and overseeing a specific subject area or
+            department within a school. The HOD is typically a teacher or
+            lecturer with significant experience and expertise in their subject
+            area.
+          </h4>
+        </div>
+
+        <div class="name" data-name="p-4" tname="ISHMEET">
+          <div class="image-container">
+            <img src="/assets/jeel.svg" class="image" />
+          </div>
+          <h3>ISHMEET KAUR</h3>
+          <div class="department">EVENTS DEPARTMENT</div>
+          <h4 class="discription">
+            A school HOD (Head of Department) is a senior academic leader
+            responsible for managing and overseeing a specific subject area or
+            department within a school. The HOD is typically a teacher or
+            lecturer with significant experience and expertise in their subject
+            area.
+          </h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="names-preview">
+      <div class="testbox">
+        <form action="/submitfeedback" method="post">
+          <h1 class="T-feedback">Teacher Feedback Form</h1>
+          <input type="hidden" value="" id="hid" name="tname" />
+          <table>
+            <tr>
+              <th class="first-col"></th>
+              <th>Very Good</th>
+              <th>Good</th>
+              <th>Fair</th>
+              <th>Poor</th>
+              <th>Very Poor</th>
+            </tr>
+            <tr>
+              <td class="first-col">
+                How likely is it that you would recommend your instructor to
+                another Student?
+              </td>
+              <td><input type="radio" value="5" name="q1" /></td>
+              <td><input type="radio" value="4" name="q1" /></td>
+              <td><input type="radio" value="3" name="q1" /></td>
+              <td><input type="radio" value="2" name="q1" /></td>
+              <td><input type="radio" value="1" name="q1" /></td>
+            </tr>
+            <tr>
+              <td class="first-col">How knowledgeable was your instructor?</td>
+              <td><input type="radio" value="5" name="q2" /></td>
+              <td><input type="radio" value="4" name="q2" /></td>
+              <td><input type="radio" value="3" name="q2" /></td>
+              <td><input type="radio" value="2" name="q2" /></td>
+              <td><input type="radio" value="1" name="q2" /></td>
+            </tr>
+            <tr>
+              <td class="first-col">
+                How clearly did your instructor explain the course material?
+              </td>
+              <td><input type="radio" value="5" name="q3" /></td>
+              <td><input type="radio" value="4" name="q3" /></td>
+              <td><input type="radio" value="3" name="q3" /></td>
+              <td><input type="radio" value="2" name="q3" /></td>
+              <td><input type="radio" value="1" name="q3" /></td>
+            </tr>
+            <tr>
+              <td class="first-col">
+                How concerned was your instructor that students ware learning
+                the material?
+              </td>
+              <td><input type="radio" value="5" name="q4" /></td>
+              <td><input type="radio" value="4" name="q4" /></td>
+              <td><input type="radio" value="3" name="q4" /></td>
+              <td><input type="radio" value="2" name="q4" /></td>
+              <td><input type="radio" value="1" name="q4" /></td>
+            </tr>
+            <tr>
+              <td class="first-col">
+                How helpful were the assignments to your understanding of the
+                material?
+              </td>
+              <td><input type="radio" value="5" name="q5" /></td>
+              <td><input type="radio" value="4" name="q5" /></td>
+              <td><input type="radio" value="3" name="q5" /></td>
+              <td><input type="radio" value="2" name="q5" /></td>
+              <td><input type="radio" value="1" name="q5" /></td>
+            </tr>
+          </table>
+          <h4>Any areas of improvement?</h4>
+          <textarea rows="5" name="comment"></textarea>
+          <input value="Submit" class="submit-b" type="submit" />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
