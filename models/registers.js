@@ -34,12 +34,13 @@ const userSchema = new mongoose.Schema({
 userSchema.methods.generateAuthToken = async function () {
   try {
     const token = jwt.sign(
+      //assigining token to the particular regisering user
       { _id: this._id.toString() },
       process.env.SECRET_KEY
     );
-    this.tokens = this.tokens.concat({ token: token });
-    await this.save();
-    return token;
+    this.tokens = this.tokens.concat({ token: token }); //putting token in schema
+    await this.save(); // saving the token in the database
+    return token; //returning value of token to the app.js page
   } catch (error) {
     res.send("The error part " + error);
     console.log("The error part " + error);
@@ -53,7 +54,6 @@ userSchema.pre("save", async function (next) {
   }
   next();
 });
-
 
 // now we need to create a schema
 

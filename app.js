@@ -1,4 +1,4 @@
-require("dotenv").config();
+require("dotenv").config(); //hide files
 const express = require("express");
 const bodyParser = require("body-parser");
 const { body, validationResult, cookie } = require("express-validator");
@@ -6,9 +6,9 @@ const ejs = require("ejs");
 require("./db/conn");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-var cookieParser = require('cookie-parser')
+var cookieParser = require("cookie-parser");
 const auth = require("./src/middleware/auth");
-const Feedback = require('./models/feedbacks');
+const Feedback = require("./models/feedbacks");
 
 const port = process.env.PORT || 3000;
 
@@ -16,7 +16,7 @@ const app = express();
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser())
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
@@ -26,7 +26,7 @@ app.get("/", function (req, res) {
   res.render("website");
 });
 
-app.get("/secret", auth ,function (req, res) {
+app.get("/secret", auth, function (req, res) {
   // console.log(req.cookies.jwt);
   res.render("secret");
 });
@@ -95,8 +95,6 @@ app.post("/login", async (req, res) => {
       httpOnly: true,
     });
 
-    
-
     if (isMatch) {
       res.status(201).redirect("/secret");
     } else {
@@ -113,13 +111,13 @@ app.get("/logout", auth, async (req, res) => {
     res.clearCookie("jwt");
     // console.log("logged out successfully");
     // await req.user.save();
-    res.redirect("/signup");
+    res.redirect("/");
   } catch (error) {
     res.status(500).send(error);
   }
 });
 
-app.post('/submitfeedback', auth, async (req, res) => {
+app.post("/submitfeedback", auth, async (req, res) => {
   let q1 = req.body.q1;
   let q2 = req.body.q2;
   let q3 = req.body.q3;
@@ -128,25 +126,23 @@ app.post('/submitfeedback', auth, async (req, res) => {
   let tname = req.body.tname;
   let comment = req.body.comment;
   try {
-    const f = new Feedback ({ 
+    const f = new Feedback({
       question1: q1,
       question2: q2,
       question3: q3,
       question4: q4,
       question5: q5,
-        teachername: tname,
-        comment: comment,
-    })
+      teachername: tname,
+      comment: comment,
+    });
 
     await f.save();
 
-      res.redirect('/secret');
+    res.redirect("/secret");
   } catch (error) {
     res.status(500).send(error);
   }
-})
-
-
+});
 
 app.listen(3000, function () {
   console.log("server running on port 3000");
